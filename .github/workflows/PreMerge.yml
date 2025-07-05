@@ -1,0 +1,21 @@
+name: PreMarge
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pre-merge-build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '23'
+      
+      - name: Echo PreMerge
+        run: echo "Pre Merge" | node -v
